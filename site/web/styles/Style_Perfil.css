@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.lateral {
+    background-color: rgb(255, 255, 255);
+    height: 638px;
+    border: 4px solid;
+    width: 20%;
+}
+
+.perfil {
+    border-bottom: 4px solid;
+    text-align: center;
+    margin-bottom: 51px;
+    margin-top: -60px;
+}
+
+.nome {
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.img_perfil {
+    margin-bottom: 10px;
+}
+
+.box {
+    display: flex;
+    padding: 10px;
+    /* margin-bottom: 50px; */
+
+}
+
+.box_colorido {
+    display: flex;
+    padding: 10px;
+    background-color: rgb(180, 180, 180);
+    box-shadow: rgba(0, 0, 0, 0.699) 0px 3px 8px;
+    border-radius: 10px;
+
+}
+
+.graficos {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: xx-large;
+    list-style: none;
+
+}
+
+.graficos:hover {
+    text-decoration: underline;
+}
+
+.médias {
+    cursor: pointer;
+    font-size: xx-large;
+    /* color: rgba(0, 0, 0, 0.527); */
+    list-style: none;
+}
+
+.médias:hover {
+    text-decoration: underline;
+
+}
+
+.botao_adicionar_sensor {
+    height: 80px;
+    margin-top: 50px;
+    width: 100%;
+    font-size: large;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.699) 0px 3px 8px;
+    background-color: rgb(0, 211, 0);
+    cursor: pointer;
+
+}
+
+.botao_adicionar_sensor:hover {
+    background-color: rgb(2, 165, 2);
+
+}
+
+/* .botao_adicionar_estufa {
+    height: 80px;
+    width: 100%;
+    background-color: rgb(157, 255, 0);
+} */
+
+
+.botao_sair {
+    height: 50px;
+    width: 40%;
+    font-size: large;
+    /* margin: 10px; */
+    border-radius: 10px;
+    background-color: red;
+    cursor: pointer;
+}
+
+.botao_sair:hover {
+    background-color: rgb(197, 2, 2);
+}
+
+.box_botao {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.body {
+    display: flex;
+    background-color: rgb(151, 151, 151);
+}
+
+.corpo_rodape {
+    display: flex;
+    justify-content: space-around;
+    width: 1030px;
+    height: 60px;
+    margin-left: 267px;
+    background-color: rgb(151, 151, 151);
+
+}
+
+.input_style {
+    display: flex;
+    text-align: center;
+    width: 30vw;
+    height: 50px;
+    margin-top: 10px;
+    border: 4px solid white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 7px;
+    background-color: rgb(97, 97, 97);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.input_decoration {
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+}

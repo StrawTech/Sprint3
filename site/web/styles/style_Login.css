@@ -47,3 +47,8 @@ margin-top: 50px;
     color: red;
     padding-left: 8px;
 }
+.a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
