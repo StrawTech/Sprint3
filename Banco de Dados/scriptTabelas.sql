@@ -8,15 +8,17 @@ create table empresa(
     nome varchar(40) not null,
     representante varchar(50),
     cnpj char(14) not null,
+    CEP varchar(40) not null,
+    cidade varchar(40) not null,
+    bairro varchar(40) not null,
+    rua varchar(40) not null,
+    numero varchar(20) not null,
     email varchar(60) not null,
 	senha varchar(30) not null
 );
 
-insert into empresa (nome, representante, cnpj, email, senha) values
-	('Frizza Estufas', 'Fernando Souza', '29410462723323', 'estufa.frizzarini@sptech.school', 'Estuf@2023' ),
-    ('Moranguinhos', 'Marcelo Augusto', '20943432843483', 'marcelo.morango@sptech.school', 'Morangu3t!'),
-    ('Morantech', 'Pablo Santos', '91332372972472', 'pablo.santos@moran.tech', 'T3cnologi@');
-    
+insert into empresa (nome, representante, cnpj, CEP, cidade, bairro, rua, numero, email, senha) values
+	('Frizza Estufas', 'Fernando Souza', '29410462723323',  '05819030', 'São Paulo', 'Jardim santa josé fina', 'Rua foz do giraldo',  '96',  'estufa.frizzarini@sptech.school', 'Estuf@2023' );
 select * from empresa;
 
 
@@ -30,10 +32,10 @@ create table plantacao (
     );
     
 insert into plantacao values
-	(1, 1, 'Estufa baixa SP', 3),
-	(2, 1, 'Estufa SC', 3),
-	(3, 2, 'Morango maduro', 3),
-	(4, 3, 'Morago pequeno', 3);
+	(1, 1, 'Estufa baixa SP', 3);
+
+Select * FROM plantacao where fkEmpresa = 1;
+
 
 create table endereco (
 	idEndereco int primary key auto_increment,

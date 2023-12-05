@@ -29,8 +29,6 @@
 
     <main>
 
-
-
         <div class="header-main-cadastro">
             <h1>Crie uma nova conta</h1>
             <p>Já possui uma conta? <a href="./Login.html">Login</a></p>
@@ -164,4 +162,72 @@
 </body>
 
 </html>
-<script src="./scripts/Cadastro.js"></script>
+<script>
+
+    function cadastrar() {
+
+        var nome_empresaVar = input_nome_empresa.value;
+        var representanteVar = input_representante.value;
+        var cnpjVar = input_cnpj.value;
+        var enderecoVar = input_endereco.value;
+        var cidadeVar = input_cidade.value;
+        var bairroVar = input_bairro.value;
+        var ruaVar = input_rua.value;
+        var numero_ruaVar = input_numero_rua.value;
+        var senhaVar = input_senha.value;
+        var emailVar = input_email.value;
+
+
+
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeEmpresaServer: nome_empresaVar,
+                nomeRepresentanteServer: representanteVar,
+                cnpjServer: cnpjVar,
+                enderecoServer: enderecoVar,
+                cidadeServer: cidadeVar,
+                bairroServer: bairroVar,
+                ruaServer: ruaVar,
+                numeroRuaServer: numero_ruaVar,
+                senhaServer: senhaVar,
+                emailServer: emailVar
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+
+    }
+
+
+</script>
