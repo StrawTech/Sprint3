@@ -1,7 +1,7 @@
 .global-main{
     display: flex;
     align-items: center;
-    width: 65%;
+    width: 100%;
     margin: auto;
     margin-top: 50px;
     /* align-items: center;
@@ -12,8 +12,9 @@
 }
 
 .ImgMain{
-    width: 80%;
 
+    width: fit-content;
+    height: fit-content;
 }
 
 .finalCard{
@@ -27,7 +28,8 @@
 
 .h3DentroMain{
     text-align: center;
-    margin: auto;
+    margin: 20px;
+    font-size: 25px;
 }
 /* 
 .bola1{
@@ -37,3 +39,8 @@
     border-radius: 50%;
     position: fixed;
 } */
+
+h2 b {
+    color: #9E3750;
+    font-size: 40px;
+}

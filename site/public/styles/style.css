@@ -193,3 +193,19 @@ header a{
     width: 40px;
     cursor: pointer;
 }
+
+.a2 {
+    text-decoration: none;
+    color: #C491A5;
+    opacity: 0.3;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+.a1 {
+    text-decoration: none;
+    color: #9E3750;
+    font-weight: bold;
+    font-size: 25px;
+}
+  
