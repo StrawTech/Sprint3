@@ -1,162 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gráficos</title>
-    <link rel="icon" type="image/jpg" href="./assets/logoIcon.png" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/style_Gráficos.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <style>
-      canvas {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-      }
-    </style>
-  </head>
 
-  <body>
-    <header>
-      <img src="./assets/logo.jpeg" width="135px" alt="Logo StrawTech" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gráficos</title>
+  <link rel="icon" type="image/jpg" href="./assets/logoIcon.png" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/style_Gráficos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+  <style>
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
 
-      <ul>
-        <li class="headerLi"><a href="./Home.html">Home</a></li>
-        <li class="headerLi"><a href="./Gráfico.html">Gráficos</a></li>
-        <li class="headerLi"><a href="./Calculadora.html">Calculadora</a></li>
-        <li class="headerLi"><a href="./Produto.html">Produto</a></li>
-      </ul>
+<body>
+  <header>
+    <img src="./assets/logo.jpeg" width="135px" alt="Logo StrawTech" />
 
-      <h3 class="h3Header"><a href="./Login.html">Login</a></h3>
-    </header>
+    <ul>
+      <li class="headerLi"><a href="./Home.html">Home</a></li>
+      <li class="headerLi"><a href="./Gráfico.html">Gráficos</a></li>
+      <li class="headerLi"><a href="./Calculadora.html">Calculadora</a></li>
+      <li class="headerLi"><a href="./Produto.html">Produto</a></li>
+    </ul>
 
-    <main>
-<<<<<<< HEAD
-      <br /><br />
-      <center>
-        <h1>Gráficos</h1>
-      </center>
+    <h3 class="h3Header"><a href="./Login.html">Login</a></h3>
+  </header>
 
-      <br /><br />
+  <main>
+    <br><br>
+    <center>
+      <h1>Gráficos</h1><br><br>
+      <h3>Média temperaturas ideais:</h3>
+    </center>
 
-      <div class="DivDashBoardCard">
-        <br />
-        <h3>Média Diária</h3>
-        <br />
-=======
-        <br><br>
-        <center>
-            <h1>Gráficos</h1><br><br>
-            <h3>Média temperaturas ideais:</h3>
-        </center>
+    <br>
 
-        <br>
+    <div class="h3Graficos">
+      <h3 style="color: rgb(223, 34, 34);">Temperatura</h3> <img class="imgVetorTemperatura"
+        src="./assets/VetorTemperaturaPNG.png" alt="">
+    </div>
+    <div class="regua">
+      <div class="item-regua perigo-frio">
+        <h4>Perigo</h4>
+        <h2>&lt;=5°C</h2>
+      </div>
+      <div class="item-regua alerta-frio">
+        <h4>Alerta</h4>
+        <h2>&lt;=10°C</h2>
+      </div>
+      <div class="item-regua ideal">
+        <h4>Ideal</h4>
+        <h2>20°C</h2>
+      </div>
+      <div class="item-regua alerta-quente">
+        <h4>Alerta</h4>
+        <h2>&gt;=22°C</h2>
+      </div>
+      <div class="item-regua perigo-quente">
+        <h4>Perigo</h4>
+        <h2>&gt;=23°C</h2>
+      </div>
+    </div>
+    <br><br>
 
-        <div class="h3Graficos">
-            <h3 style="color: rgb(223, 34, 34);">Temperatura</h3> <img class="imgVetorTemperatura"
-                src="./assets/VetorTemperaturaPNG.png" alt="">
+    <div class="h3Graficos">
+      <h3 style="color: rgb(0, 140, 255);">Umidade</h3> <img class="imgVetorUmidade" src="./assets/umidadeVetor.png"
+        alt="">
+    </div>
+    <div class="regua">
+      <div class="item-regua perigo-frio">
+        <h4>Perigo</h4>
+        <h2>&lt;=5°C</h2>
+      </div>
+      <div class="item-regua alerta-frio">
+        <h4>Alerta</h4>
+        <h2>&lt;=10°C</h2>
+      </div>
+      <div class="item-regua ideal">
+        <h4>Ideal</h4>
+        <h2>20°C</h2>
+      </div>
+      <div class="item-regua alerta-quente">
+        <h4>Alerta</h4>
+        <h2>&gt;=22°C</h2>
+      </div>
+      <div class="item-regua perigo-quente">
+        <h4>Perigo</h4>
+        <h2>&gt;=23°C</h2>
+      </div>
+    </div>
+
+
+    <div class="DivDashBoardCard">
+      <br>
+      <h3>Média Diária</h3>
+      <br>
+
+      <div class="FlexBox alintExCenter">
+        <div class="Card-MédiaMensalUmi">
+          <p style="color: #45b3e7; font-size: 20px">Umidade %</p>
+          <p id="NumeroCardDiáriaUmi" class="NumberCardMensalUmi">80,4</p>
         </div>
-        <div class="regua">
-            <div class="item-regua perigo-frio">
-                <h4>Perigo</h4>
-                <h2>&lt;=5°C</h2>
-            </div>
-            <div class="item-regua alerta-frio">
-                <h4>Alerta</h4>
-                <h2>&lt;=10°C</h2>
-            </div>
-            <div class="item-regua ideal">
-                <h4>Ideal</h4>
-                <h2>20°C</h2>
-            </div>
-            <div class="item-regua alerta-quente">
-                <h4>Alerta</h4>
-                <h2>&gt;=22°C</h2>
-            </div>
-            <div class="item-regua perigo-quente">
-                <h4>Perigo</h4>
-                <h2>&gt;=23°C</h2>
-            </div>
-        </div>
-        <br><br>
 
-        <div class="h3Graficos">
-            <h3 style="color: rgb(0, 140, 255);">Umidade</h3> <img class="imgVetorUmidade"
-                src="./assets/umidadeVetor.png" alt="">
-        </div>
-        <div class="regua">
-            <div class="item-regua perigo-frio">
-                <h4>Perigo</h4>
-                <h2>&lt;=5°C</h2>
-            </div>
-            <div class="item-regua alerta-frio">
-                <h4>Alerta</h4>
-                <h2>&lt;=10°C</h2>
-            </div>
-            <div class="item-regua ideal">
-                <h4>Ideal</h4>
-                <h2>20°C</h2>
-            </div>
-            <div class="item-regua alerta-quente">
-                <h4>Alerta</h4>
-                <h2>&gt;=22°C</h2>
-            </div>
-            <div class="item-regua perigo-quente">
-                <h4>Perigo</h4>
-                <h2>&gt;=23°C</h2>
-            </div>
-        </div>
-
-        <br><br>
-
-
-        <div class="DivDashBoardCard">
-            <br>
-            <h3>Média Diária</h3>
-            <br>
->>>>>>> 983d299adffc414c81a373b29a858ddd5b7f9a73
-
-        <div class="FlexBox alintExCenter">
-          <div class="Card-MédiaMensalUmi">
-            <p style="color: #45b3e7; font-size: 20px">Umidade %</p>
-            <p id="NumeroCardDiáriaUmi" class="NumberCardMensalUmi">80,4</p>
-          </div>
-
-<<<<<<< HEAD
-          <div class="Card-MédiaMensalTemp">
-            <p style="color: #ff7301; font-size: 20px">Temperatura C°</p>
-            <p id="NumeroCardDiáriaTemp" class="NumberCardMensalTemp">25,2</p>
-          </div>
+        <div class="Card-MédiaMensalTemp">
+          <p style="color: #ff7301; font-size: 20px">Temperatura C°</p>
+          <p id="NumeroCardDiáriaTemp" class="NumberCardMensalTemp">25,2</p>
         </div>
       </div>
-      <br /><br />
-
-      <div style="margin: auto" class="cardTempeHumIDeal">
-        <h2 style="text-align: center">Temperaturas e Umidade Ideais</h2>
-        <img style="margin: auto" src="./assets/Metricas.png" alt="" />
-      </div>
-=======
-                <div class="Card-MédiaMensalUmi">
-                    <p style="color: #45b3e7; font-size: 20px;">Umidade %</p>
-                    <p id="NumeroCardDiáriaUmi" class="NumberCardMensalUmi">80,4</p>
-                </div>
-
-                <div class="Card-MédiaMensalTemp">
-                    <p style="color: #FF7301; font-size: 20px;">Temperatura C°</p>
-                    <p id="NumeroCardDiáriaTemp" class="NumberCardMensalTemp">25,2</p>
-                </div>
-
-            </div>
+    </div>
+    <br /><br />
 
 
-        </div><br><br>
 
-        <br><br>
-        <div class="GraficosJáligadosComAPI">
->>>>>>> 983d299adffc414c81a373b29a858ddd5b7f9a73
+    </div>
+
+
+
+
+    <br><br>
+    <div class="GraficosJáligadosComAPI">
 
       <br /><br />
       <div class="GraficosJáligadosComAPI">
@@ -178,11 +148,7 @@
           <p class="graficos_umAoLadodoOutro">Sensor LM 35 - Temperatura</p>
           <canvas id="lm35Temperatura"></canvas>
         </section>
-
-        <!-- <h1>Sensor Chave</h1>
-            <section style="width: 100%;">
-                <canvas id="chave"></canvas>
-            </section>  -->
+        <br>
       </div>
       <br />
       <div class="GraficosJáligadosComAPI">
@@ -629,56 +595,40 @@
           // obterDados(chave, 'chave');
         }, 1000);
       </script>
-    </main>
+  </main>
 
-    <footer>
-      <div class="rodape2">
-        <br /><br />
-        <div class="labelIcones">
-          <br />
-          <a
-            href="https://wa.me/+5511947693677/? text="
-            target="https://wa.me/+5511947693677/? text="
-          >
-            <img class="icones" src="./assets/whatsapp.png" alt=""
-          /></a>
-          <a
-            href="https://www.instagram.com/strawtechsp"
-            target="https://www.instagram.com/strawtechsp"
-          >
-            <img class="icones" src="./assets/instagram.png" alt=""
-          /></a>
-          <a
-            href="https://github.com/StrawTech/Sprint2"
-            target="https://github.com/StrawTech/Sprint2"
-          >
-            <img class="icones" src="./assets/github.png" alt=""
-          /></a>
-          <br />
-          <h5>2023 StrawTech. Todos os direitos reservados</h5>
-        </div>
+  <footer>
+    <div class="rodape2">
+      <br /><br />
+      <div class="labelIcones">
         <br />
+        <a href="https://wa.me/+5511947693677/? text=" target="https://wa.me/+5511947693677/? text=">
+          <img class="icones" src="./assets/whatsapp.png" alt="" /></a>
+        <a href="https://www.instagram.com/strawtechsp" target="https://www.instagram.com/strawtechsp">
+          <img class="icones" src="./assets/instagram.png" alt="" /></a>
+        <a href="https://github.com/StrawTech/Sprint2" target="https://github.com/StrawTech/Sprint2">
+          <img class="icones" src="./assets/github.png" alt="" /></a>
+        <br />
+        <h5>2023 StrawTech. Todos os direitos reservados</h5>
       </div>
-    </footer>
-    <script>
-      window.fwSettings = {
-        widget_id: 153000000599,
-      };
-      !(function () {
-        if ("function" != typeof window.FreshworksWidget) {
-          var n = function () {
-            n.q.push(arguments);
-          };
-          (n.q = []), (window.FreshworksWidget = n);
-        }
-      })();
-    </script>
-    <script
-      type="text/javascript"
-      src="https://widget.freshworks.com/widgets/153000000599.js"
-      async
-      defer
-    ></script>
-  </body>
+      <br />
+    </div>
+  </footer>
+  <script>
+    window.fwSettings = {
+      widget_id: 153000000599,
+    };
+    !(function () {
+      if ("function" != typeof window.FreshworksWidget) {
+        var n = function () {
+          n.q.push(arguments);
+        };
+        (n.q = []), (window.FreshworksWidget = n);
+      }
+    })();
+  </script>
+  <script type="text/javascript" src="https://widget.freshworks.com/widgets/153000000599.js" async defer></script>
+</body>
+
 </html>
 <script src="./scripts/scriptGráfico.js"></script>

@@ -1,76 +1,110 @@
+drop database strawTech;
+
 create database strawTech;
 use strawTech;
 
 create table empresa(
 	idEmpresa int primary key auto_increment,
-    nome varchar(40),
+    nome varchar(40) not null,
     representante varchar(50),
-    cnpj char(14),
-    email varchar(45),
-	senha varchar(30)
+    cnpj char(14) not null,
+    CEP varchar(40) not null,
+    cidade varchar(40) not null,
+    bairro varchar(40) not null,
+    rua varchar(40) not null,
+    numero varchar(20) not null,
+    email varchar(60) not null,
+	senha varchar(30) not null
 );
 
+insert into empresa (nome, representante, cnpj, CEP, cidade, bairro, rua, numero, email, senha) values
+	('Group Frizaa', 'Frizza', '29410562723333',  '05819030', 'São Paulo', 'Jardim santa josé fina', 'Rua foz do giraldo',  '96',  'friza@sptech.school', 'Frizza' );
 
-create table endereco (
-	idEndereco int,
-	fkEmpresa int,
-    constraint fkEmpEndec foreign key (fkEmpresa) references empresa(idEmpresa),
-    cep char(8),
-    uf varchar(30),
-    cidade varchar(30),
-    bairro varchar(30),
-    rua varchar(40),
-    numero int,
-	primary key (idEndereco, fkEmpresa)
-);
- 
+select * from empresa;
 
 
 create table plantacao (
-	idPlantacao int primary key,
-    nome varchar(20),
-    qtdSensor int,
-    fkEmpresa int,
-    constraint fkEmpPlant foreign key (fkEmpresa) references empresa(idEmpresa)
-);
+	idPlantacao int auto_increment,
+	fkEmpresa int,
+	foreign key (fkEmpresa) references empresa(idEmpresa),
+    nome varchar(50),
+    qtdArduino int,
+    primary key (idPlantacao, fkEmpresa)
+    );
 
- create table identificacao_sens(
- idSensor int primary key auto_increment,
- fkEmpresa int,
- constraint fkEmpresa foreign key (fkEmpresa) references empresa (idEmpresa)
- );
+    
+insert into plantacao values
+	(2, 1, 'estufa Boituva', 6);
 
-create table sensor (
-	idSensor int primary key,
-	fkPlantacao int,
-    constraint fkPlantSen foreign key (fkPlantacao) 
-		references plantacao(idPlantacao)
-     idCapturaDados int primary key auto_increment,
-     fkSensor int,
-    temp decimal(4,2),
-    umi decimal(4,2),
-    hora timestamp,
-    fkPlantacao int,
-    constraint fkPlantSen foreign key (fkPlantacao) references plantacao(idPlantacao) ,
-    constraint fkSensor foreign key (fkSensor) references identificacao_sens (idSensor)
-);
+
+INSERT INTO plantacao (fkEmpresa, nome, qtdArduino) VALUES (2, 'Minha Plantacao', 5);
+
+Select * FROM plantacao;
+
+
+-- create table endereco (
+-- 	idEndereco int primary key auto_increment,
+-- 	fkPlantacao int,
+--     foreign key (fkPlantacao) references plantacao(idPlantacao),
+--     cep char(8) not null,
+--     uf varchar(30) not null,
+--     cidade varchar(30) not null,
+--     bairro varchar(30),
+--     rua varchar(50) not null,
+--     numero int
+-- );
+
+-- insert into endereco values
+-- 	(null, 1, '21304932', 'SP', 'Sao Paulo', 'Cerqueira Cesar','Hadock Lobo', 595),
+-- 	(null, 2, '89320492', 'RJ', 'Rio de Janeiro', 'Madureira','Avenida Brasil', 1000),
+-- 	(null, 3, '64154647', 'SP', 'Sao Paulo', 'Cerqueira Cesar','Alameda Santos', 3445),
+-- 	(null, 4, '54646819', 'SC', 'Santa Catarina', 'Joinville', 'Pitangas', 34);
+
+
+-- create table arduino (
+-- 	idArduino int primary key auto_increment,
+-- 	fkPlantacao int,
+-- 	foreign key (fkPlantacao) references plantacao(idPlantacao),
+-- 	dtInstalacao date
+--     );
 
 
 create table registro (
-   idRegistro int,
-   fkSensor int,
-   constraint fkSenReg foreign key (fkSensor)
-   references sensor(idSensor),
-   temp decimal(4,2),
-   umi decimal(4,2),
-   hora timestamp
+	idRegistro int primary key auto_increment,
+	fkPlantacao int,
+	foreign key (fkPlantacao) references plantacao(idPlantacao),
+    lm35_temperatura decimal(4,2),
+    dht11_umidade decimal(4,2),
+    dataHora DATETIME  DEFAULT current_timestamp 
 );
 
-/*
-create table suporte (
-	idSuporte int primary key,
-    assunto varchar(45),
-    descricao varchar(300),
-    email varchar(45)
-);
-*/
+SELECT * FROM registro;
+
+INSERT INTO registro (fkPlantacao, lm35_temperatura, dht11_umidade)
+VALUES
+    (2, 30, 80.0);
+
+SELECT
+    lm35_temperatura AS temperatura,
+    dht11_umidade AS umidade,
+    dataHora AS momento,
+    DATE_FORMAT(dataHora, '%H:%i:%s') AS momento_grafico
+FROM registro
+WHERE fkPlantacao = 2
+ORDER BY idRegistro DESC
+LIMIT 7;
+
+select 
+        lm35_temperatura as temperatura, 
+        dht11_umidade as umidade,
+		DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico, 
+		fkPlantacao 
+		from registro where fkPlantacao = 2
+                    order by idRegistro desc limit 1;
+
+select dht11_temperatura as temperatura, 
+	   dht11_umidade as umidade, dataHora,
+                        DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico
+                    from registro
+                    where fk_plantacao = 1
+                    order by id desc limit 7;

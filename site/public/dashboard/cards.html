@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrawTech | Gráficos</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboards.css">
+
+    <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<!-- <body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica(), listarPlantacoes()"> -->
+
+<body onload="validarSessao()">
+    <div class="janela">
+
+        <div class="header-left dash-header">
+
+            <img src="../assets/logo.jpeg" width="135px" alt="Logo StrawTech">
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Plantações</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+
+            <div id="mensagem" style="color: black;">
+            </div>
+
+            <div id="AdicionarPlantacaoFechado" class="AdicionarPlantação">
+                <button onclick="abrirNovaPlantacao()" class="buttonCadastroPlantacao">Cadastrar Plantação</button>
+            </div>
+
+            <div id="AdicionarPlantacaoAberto" class="AdicionarPlantacaoAberto">
+
+                <div class="inputs">
+                    <p class="ParagrafoOlantacaoAdicionar">Nome da Plantação<input id="nomeNovaPlantação"
+                            style="margin-left:15px;" type="text"></p>
+                </div>
+                <div class="inputs">
+                    <p class="ParagrafoOlantacaoAdicionar">Largura em metros<input id="LarguraNovaPlantacao"
+                            style="margin-left:15px;" type="number"></p>
+                    <p class="ParagrafoOlantacaoAdicionar">Comprimento em metros<input id="ComprimentoNovaPlantacao"
+                            style="margin-left:15px;" type="number"></p>
+                </div>
+                <div class="inputs">
+                    <button onclick="RegistrarNovaPlantação()"
+                        style="margin: auto; text-align: center; align-items: center;"
+                        class="buttonCadastroPlantacao">Registrar nova
+                        plantação</button>
+                </div>
+            </div>
+
+
+
+            <div class="cards" id="cardEstufas">
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    function RegistrarNovaPlantação() {
+
+        var largura = Number(LarguraNovaPlantacao.value);
+        var comprimento = Number(ComprimentoNovaPlantacao.value);
+        var areaTotal = (largura * comprimento) / 3;
+
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
+        var nomeDaPlantacaoVar = nomeNovaPlantação.value;
+        var qtdArduinoVar = areaTotal.toFixed(0);
+
+
+
+        fetch("/aquarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+                IdUsuarioServer: idUsuarioVar,
+                NomeDaPlantacaoServer: nomeDaPlantacaoVar,
+                QtdArduinoServer: qtdArduinoVar,
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert("Nova Plantação cadastrada com sucesso!");
+
+                    setTimeout(() => {
+                        window.location = "/dashboard/cards.html";
+                    }, "1000");
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+
+    }
+
+
+
+    function abrirNovaPlantacao() {
+
+        var idAbrir = document.getElementById("AdicionarPlantacaoAberto");
+        var idFechar = document.getElementById("AdicionarPlantacaoFechado")
+
+        idAbrir.style.display = "block"
+
+        idFechar.style.display = "none"
+
+
+    }
+
+    function exibirplantações() {
+
+        var idplantacao = sessionStorage.ID_USUARIO;
+
+
+        function exibirAquarios() {
+            JSON.parse(sessionStorage.PLANTACOES).forEach(item => {
+                document.getElementById("cardEstufas").innerHTML += `
+
+                    <div class="card">
+                        <h1>Nome da Plantação: ${item.nome}</h1>
+                        <div class="temperatura">
+                            <p id="temp_aquario_${item.idPlantacao}">-°C</p>
+                        </div>
+                        <div class="cor-alerta" id="card_${item.idPlantacao}"></div>
+                    </div>
+                    `
+
+            });
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="icon" type="image/jpg" href="./assets/logoIcon.png">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style_Calculadora.css">
+    <script src="./scripts/scriptCalculadora.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img src="./assets/logo.jpeg" width="135px" alt="Logo StrawTech">
+
+        <ul>
+            <li class="headerLi"><a href="./index.html">Home</a></li>
+            <li class="headerLi"><a href="./Calculadora.html">Calculadora</a></li>
+            <li class="headerLi"><a href="./Produto.html">Produto</a></li>
+        </ul>
+
+        <h3 class="h3Header"><a href="./Login.html">Login</a></h3>
+
+    </header>
+
+
+    <main>
+        <div class="header-main-calculadora">
+
+            <h1 class="h1Calculadora">Calcule</h1>
+            <h3 class="PrimeiroH3Calculadora">Calcule seus <b class="colortextCalculadora">Futuros</b> ganhos com o
+                sistema da <b class="colortextCalculadora">StrawTech</b></h3>
+
+            <div class="card-calculadora">
+
+                <div class="card_input1">
+
+                    <h4>Informe seu nome:
+                        <input class="input_decoracao" id="nomeDaPessoaResponsávelCalc">
+                    </h4>
+
+                    <div class="espaçoRegister">
+                        <h4 class="">Informe o nome da fazenda:
+                            <input class="input_decoracao" type="text" id="input_nomeDaFazendaCalc">
+                        </h4>
+                    </div>
+                </div>
+
+
+                <div class="card_input1">
+
+
+                    <h4>Informe a quantidade(Kg) que produz no total :
+                        <input class="input_decoracao" type="number" id="input_quantidadeTotalProduzidaCalc" />
+                    </h4>
+
+                    <div class="espaçoRegister">
+                        <h4>Informe a quantidade(Kg) de perda:
+                            <input class="input_decoracao" type="number" id="input_quantidadeTotalPerdidaCalc" />
+                        </h4>
+                    </div>
+                </div>
+
+
+                <div class="card_input1">
+
+                    <h4>Informe o valor do Kg que você vende o morango:
+                        <input class="input_decoracao" type="number" id="input_valorVendaDoMorangoCalc" />
+                    </h4>
+                    <div class="espaçoRegister">
+                        <h4 class="textCalculadora">Se não souber a quantidade de perda, pode deixar em branco que vamos
+                            aplicar uma média de 20% que normalmente é perdidada por safra.</h4>
+                    </div>
+                </div>
+
+
+                <button class="button_Calcular" onclick="calcularGanhos()">Calcular lucros com a solução da
+                    StrawTech</button>
+                <br>
+
+
+            </div>
+        </div>
+
+
+        <div class="exibirCalculadora" id="exibirCalculadora">
+
+            <div class="headerResultado">
+                <h3>Resultado:</h3>
+                <h2 onclick="closePopup()"><b>X</b></h2>
+            </div>
+
+
+
+            <div id="exibir"></div>
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="rodape2">
+            <br><br>
+            <div class="labelIcones">
+                <br>
+                <a href="https://wa.me/+5511947693677/? text=" target="https://wa.me/+5511947693677/? text="> <img
+                        class="icones" src="./assets/whatsapp.png" alt=""></a>
+                <a href="https://www.instagram.com/strawtechsp" target="https://www.instagram.com/strawtechsp"> <img
+                        class="icones" src="./assets/instagram.png" alt=""></a>
+                <a href="https://github.com/StrawTech/Sprint2" target="https://github.com/StrawTech/Sprint2"> <img
+                        class="icones" src="./assets/github.png" alt=""></a>
+                <br>
+                <h5>2023 StrawTech. Todos os direitos reservados</h5>
+            </div>
+            <br>
+        </div>
+
+    </footer>
+    <script>
+        window.fwSettings = {
+            'widget_id': 153000000599
+        };
+        !function () { if ("function" != typeof window.FreshworksWidget) { var n = function () { n.q.push(arguments) }; n.q = [], window.FreshworksWidget = n } }() 
+    </script>
+    <script type='text/javascript' src='https://widget.freshworks.com/widgets/153000000599.js' async defer></script>
+</body>
+
+</html>
