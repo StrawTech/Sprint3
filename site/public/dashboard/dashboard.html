@@ -64,7 +64,7 @@
             <br><br><br>
             <div style="margin: auto; text-align: center">
                 <h1 style="color: black;">Seleciona uma plantação:</h1>
-                <select name="plantacoes" id="listaplatacoesUser">
+                <select class="SelectPlatacoes" name="plantacoes" id="listaplatacoesUser">
                     <option selected>Selecione uma plantação</option>
                 </select>
                 <button onclick="ChamarGraphc()" class="btn-buscarPlantacao">Buscar Plantação</button>
@@ -155,7 +155,7 @@
             <br /><br />
 
 
-            <div class="btns-dash" id="graficosPlotarCanvas">
+            <div class="graficos_container" id="graficosPlotarCanvas">
 
 
 
@@ -201,14 +201,14 @@
 
         var idGraficos = document.getElementById("graficosPlotarCanvas")
 
-        idGraficos.innerHTML = `<section style="width: 50%; margin: auto">
-                    <p class="graficos_umAoLadodoOutro">Sensor DHT 11 - Umidade</p>
+        idGraficos.innerHTML = `<section class="graficos_umAoLadodoOutro" >
+                    <p >Sensor DHT 11 - Umidade</p>
                     <canvas id="dht11Umidade"></canvas>
                 </section>
                 <br>
 
-                <section style="width: 50%; margin: auto">
-                    <p class="graficos_umAoLadodoOutro">Sensor LM 35 - Temperatura</p>
+                <section class="graficos_umAoLadodoOutro" >
+                    <p>Sensor LM 35 - Temperatura</p>
                     <canvas id="lm35Temperatura"></canvas>
                 </section>`
 

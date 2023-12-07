@@ -21,7 +21,7 @@
 
 <!-- <body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica(), listarPlantacoes()"> -->
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), exibirplantações()">
     <div class="janela">
 
         <div class="header-left dash-header">
@@ -54,7 +54,7 @@
             </div>
 
             <div id="AdicionarPlantacaoFechado" class="AdicionarPlantação">
-                <button onclick="abrirNovaPlantacao()" class="buttonCadastroPlantacao">Cadastrar Plantação</button>
+                <button onclick="abrirNovaPlantacao()" class="buttonCadastroPlantacao">Cadastrar estufa</button>
             </div>
 
             <div id="AdicionarPlantacaoAberto" class="AdicionarPlantacaoAberto">
@@ -73,13 +73,28 @@
                     <button onclick="RegistrarNovaPlantação()"
                         style="margin: auto; text-align: center; align-items: center;"
                         class="buttonCadastroPlantacao">Registrar nova
-                        plantação</button>
+                        estufa</button>
                 </div>
             </div>
 
 
+            <center>
+                <h2 style="margin-top: 50px; font-family: Arial, Helvetica, sans-serif; ">Suas Estufas</h2>
+            </center>
+            <div class="cards-container" id="cardEstufas">
 
-            <div class="cards" id="cardEstufas">
+                <!-- <div class="card strawberry">
+                    <h2 class="h2CardEstufas" id="nomedaEstufa">Estufa 1</h2>
+                    <p class="pCardEstufas">Conteúdo do Card 1...</p>
+                </div>
+                <div class="card strawberry">
+                    <h2 id="nomedaEstufa">Estufa 2</h2>
+                    <p>Conteúdo do Card 2...</p>
+                </div>
+                <div class="card strawberry">
+                    <h2 id="nomedaEstufa">Estufa 3</h2>
+                    <p id="">Conteúdo do Card 3...</p>
+                </div> -->
 
             </div>
 
@@ -105,7 +120,7 @@
 
 
 
-        fetch("/aquarios/cadastrar", {
+        fetch("/estufas/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -123,7 +138,7 @@
 
                 if (resposta.ok) {
 
-                    alert("Nova Plantação cadastrada com sucesso!");
+                    alert("Nova Plantação cadastrada com sucesso!, nosso suporte irá entrar em contato logo!");
 
                     setTimeout(() => {
                         window.location = "/dashboard/cards.html";
@@ -157,25 +172,42 @@
 
     function exibirplantações() {
 
-        var idplantacao = sessionStorage.ID_USUARIO;
+        var idUser = sessionStorage.ID_USUARIO;
 
-
-        function exibirAquarios() {
-            JSON.parse(sessionStorage.PLANTACOES).forEach(item => {
-                document.getElementById("cardEstufas").innerHTML += `
-
-                    <div class="card">
-                        <h1>Nome da Plantação: ${item.nome}</h1>
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.idPlantacao}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.idPlantacao}"></div>
-                    </div>
-                    `
-
+        fetch(`/estufas/${idUser}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Estufas: ${JSON.stringify(resposta)}`);
+                    Exibircards(resposta)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
+
+
+    }
+
+    function Exibircards(resposta) {
+
+        var divExibir = document.getElementById("cardEstufas")
+
+        for (let i = 0; i < resposta.length; i++) {
+
+            divExibir.innerHTML += `<div class="cardss strawberry">
+                                    <h2 class="h2CardEstufas" id="nomedaEstufa">Estufa: ${resposta[i].NomePlantacao}</h2>
+                                    <p class="pCardEstufas">Cidade: ${resposta[i].Cidade} <br> Bairro: ${resposta[i].Bairro} <br> Rua: ${resposta[i].Rua} <br> Número: ${resposta[i].Numero}</p>
+                                    </div>`
+
+
         }
     }
+
+
 </script>
 
 </html>

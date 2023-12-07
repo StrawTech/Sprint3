@@ -282,7 +282,7 @@ canvas {
   height: 35px;
   border-radius: 25px;
   border: 1px solid black;
-  background-color: #e6005a;
+  background-color: #FF6666;
   color: white;
   font-weight: 600;
 }
@@ -314,14 +314,14 @@ canvas {
   height: 50px;
   border-radius: 25px;
   border: 1px solid black;
-  background-color: #e6005a;
+  background-color: #FF6666;
   color: white;
   font-weight: 600;
 }
 
 .buttonCadastroPlantacao:hover{
   background-color: white;
-  color: #e6005a;
+  color: #FF6666;
   font-weight: 800;
 }
 
@@ -339,3 +339,106 @@ canvas {
   padding: 15px;
 }
 
+
+.graficos_container {
+  display: flex;
+  max-width: 100%; /* Limita a largura da div contêiner à largura da tela */
+  overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+}
+
+/* Estilos para a seção dos gráficos */
+.graficos_umAoLadodoOutro {
+  margin: 20px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-shrink: 0; /* Impede que a seção diminua além do seu tamanho inicial */
+  width: 50%; /* Cada seção terá 50% da largura disponível */
+  max-width: calc(50% - 40px); /* Largura máxima com base na largura total e margens */
+  box-sizing: border-box; /* Garante que padding e bordas não afetem a largura total */
+  overflow: hidden; /* Remove a rolagem lateral */
+}
+
+.graficos_umAoLadodoOutro p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos específicos para o canvas do gráfico */
+#dht11Umidade,
+#lm35Temperatura {
+  width: 100%; /* Preenche a largura da seção */
+  height: auto; /* Altura automática para manter a proporção */
+  border: 1px solid #ddd;
+  border-radius: 5px;}
+  
+  .SelectPlatacoes {
+    margin: 20px;
+    text-align: center;
+}
+
+/* Estilizando o select */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ff6666; /* Cor do morango */
+    color: #fff; /* Cor do texto */
+    cursor: pointer; /* Mostra o cursor como uma mão ao passar sobre o select */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor de fundo */
+}
+    /* Estilo quando o select está focado (quando clicado) */
+    :focus {
+        outline: none;
+        background-color: #cc3333; /* Cor do morango mais escura */
+    }
+
+    /* Estilo para as opções dentro do select */
+    option {
+        background-color: #ff9999; /* Cor de fundo para as opções */
+        color: #333; /* Cor do texto das opções */
+    }
+
+
+
+    .cards-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 20px auto;
+  }
+  
+  /* Estilos para os cards */
+  .cardss {
+    display: block;
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+  }
+  
+  /* Cores específicas do morango */
+  .strawberry {
+      background-color: #ff6666;
+      color: #fff;
+  }
+  
+  /* Estilo quando o mouse está sobre o card */
+  .card:hover {
+      background-color: #cc3333;
+  }
+
+  .h2CardEstufas{
+    font-size: 25px;
+  }
+  .pCardEstufas{
+    font-size: 15px;
+  }
