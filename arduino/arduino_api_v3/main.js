@@ -52,7 +52,7 @@ const serial = async (
         // valoresChave.push(chave);
 
         if (HABILITAR_OPERACAO_INSERIR) {
-            const fkPlantacaoValor = 3; 
+            const fkPlantacaoValor = 1; 
             await poolBancoDados.execute(
                 'INSERT INTO registro (fkPlantacao, lm35_temperatura, dht11_umidade) VALUES (?, ?, ?)',
                 [fkPlantacaoValor , lm35Temperatura, dht11Umidade]

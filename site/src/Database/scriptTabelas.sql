@@ -51,7 +51,7 @@ insert into plantacao values
 	(null, 1, 'estufa Ibiuna', 15);
 
 
-INSERT INTO plantacao (fkEmpresa, nome, qtdArduino) VALUES (2, 'Minha Plantacao', 5);
+INSERT INTO plantacao (fkEmpresa, nome, qtdArduino) VALUES (1, 'Fazenda Jasmin', 25);
 
 Select * FROM plantacao;
 
@@ -69,7 +69,7 @@ create table endereco (
 );
 
 insert into endereco values
-	(null, 4, '21304932', 'SP', 'Ibiuna', 'Cerqueira Cesar','Rua foz do giraldo', 595);
+	(null, 1, '21304932', 'SP', 'Ibiuna', 'Cerqueira Cesar','Rua foz do giraldo', 595);
 
 -- SELECT * FROM endereco JOIN
 --     plantacao ON endereco.fkPlantacao = plantacao.idPlantacao;
@@ -113,7 +113,7 @@ SELECT * FROM registro;
 
 INSERT INTO registro (fkPlantacao, lm35_temperatura, dht11_umidade)
 VALUES
-    (2, 22, 70.0);
+    (1, 22, 50.0);
 
 SELECT
     lm35_temperatura AS temperatura,
@@ -121,7 +121,7 @@ SELECT
     dataHora AS momento,
     DATE_FORMAT(dataHora, '%H:%i:%s') AS momento_grafico
 FROM registro
-WHERE fkPlantacao = 2
+WHERE fkPlantacao = 1
 ORDER BY idRegistro DESC
 LIMIT 7;
 
@@ -130,7 +130,7 @@ select
         dht11_umidade as umidade,
 		DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico, 
 		fkPlantacao 
-		from registro where fkPlantacao = 2
+		from registro where fkPlantacao = 1
                     order by idRegistro desc limit 1;
 
 select dht11_temperatura as temperatura, 
