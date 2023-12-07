@@ -18,7 +18,7 @@ const serial = async (
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'NAKAMA123r!',
+            password: 'sptech',
             database: 'strawTech'
         }
     ).promise();
@@ -52,10 +52,10 @@ const serial = async (
         // valoresChave.push(chave);
 
         if (HABILITAR_OPERACAO_INSERIR) {
-            const fkPlantacaoValor = 2; 
+            const fkPlantacaoValor = 3; 
             await poolBancoDados.execute(
-                'INSERT INTO registro (fkPlantacao, dht11_umidade, lm35_temperatura) VALUES (?, ?, ?)',
-                [fkPlantacaoValor ,dht11Umidade, lm35Temperatura]
+                'INSERT INTO registro (fkPlantacao, lm35_temperatura, dht11_umidade) VALUES (?, ?, ?)',
+                [fkPlantacaoValor , lm35Temperatura, dht11Umidade]
             );
         }
 
