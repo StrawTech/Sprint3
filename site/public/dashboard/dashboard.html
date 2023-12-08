@@ -380,7 +380,7 @@
             config2
         );
 
-        setTimeout(() => atualizarGrafico(plantacaoASerbuscada, dados, dados2, myChart, mychart2), 2000);
+        setTimeout(() => atualizarGrafico(plantacaoASerbuscada, dados, dados2, myChart, mychart2), 10000);
     }
 
     function atualizarGrafico(idAquario, dados, dados2, myChart, mychart2) {
@@ -439,13 +439,13 @@
                 }
 
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                setTimeout(() => atualizarGrafico(idAquario, dados, dados2, myChart, mychart2), 2000);
+                setTimeout(() => atualizarGrafico(idAquario, dados, dados2, myChart, mychart2), 10000);
             })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 // Trate o erro aqui, se necessário
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                setTimeout(() => atualizarGrafico(idAquario, dados, dados2, myChart, mychart2), 2000);
+                setTimeout(() => atualizarGrafico(idAquario, dados, dados2, myChart, mychart2), 10000);
             });
     }
 
@@ -462,25 +462,32 @@
             Swal.fire("Perigo! Umidade Muito baixa.");
             umidade.style.backgroundColor = '#5C6BC0'
         } else if (valorUmi <= 60) {
+            Swal.fire("Alerta! Umidade baixa.");
             umidade.style.backgroundColor = '#42A5F5'
         } else if (valorUmi <= 79) {
             umidade.style.backgroundColor = '#9CCC65'
         } else if (valorUmi <= 89) {
+            Swal.fire("Alerta! Umidade alta.");
             umidade.style.backgroundColor = '#FFEE58'
         } else {
+            Swal.fire("Perigo! Umidade Muito alta.");
             umidade.style.backgroundColor = '#FF7043'
         }
 
 
         if (ValorTemp <= 1) {
+            Swal.fire("Perigo! Temperatura Muito baixa.");
             temperatura.style.backgroundColor = '#5C6BC0'
         } else if (ValorTemp <= 10) {
+            Swal.fire("Alerta! Temperatura baixa.");
             temperatura.style.backgroundColor = '#42A5F5'
         } else if (ValorTemp <= 29) {
             temperatura.style.backgroundColor = '#9CCC65'
         } else if (ValorTemp <= 39) {
+            Swal.fire("Alerta! Temperatura alta.");
             temperatura.style.backgroundColor = '#FFEE58'
         } else {
+            Swal.fire("Perigo! Temperatura Muito alta.");
             temperatura.style.backgroundColor = '#FF7043'
         }
 

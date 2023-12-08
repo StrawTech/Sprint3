@@ -17,14 +17,14 @@
     <img src="./assets/logo.jpeg" width="135px" alt="Logo StrawTech">
 
     <ul>
-        <li class="headerLi"><a class="a2" href="./index.html">Home</a></li>
-        <li class="headerLi"><a class="a2"href="./Calculadora.html">Calculadora</a></li>
-        <li class="headerLi"><a class="a2" href="./Produto.html">Produto</a></li>
-      </ul>
+      <li class="headerLi"><a class="a2" href="./index.html">Home</a></li>
+      <li class="headerLi"><a class="a2" href="./Calculadora.html">Calculadora</a></li>
+      <li class="headerLi"><a class="a2" href="./Produto.html">Produto</a></li>
+    </ul>
 
     <h3 class="h3Header"><a href="./Login.html">Login</a></h3>
 
-</header>
+  </header>
 
 
   <main>
@@ -158,6 +158,7 @@
     };
     !function () { if ("function" != typeof window.FreshworksWidget) { var n = function () { n.q.push(arguments) }; n.q = [], window.FreshworksWidget = n } }() 
   </script>
+
   <script type='text/javascript' src='https://widget.freshworks.com/widgets/154000000865.js' async defer></script>
 </body>
 
@@ -255,24 +256,20 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();
-          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;

@@ -17,9 +17,9 @@
 
         <ul>
             <li class="headerLi"><a class="a2" href="./index.html">Home</a></li>
-            <li class="headerLi"><a class="a2"href="./Calculadora.html">Calculadora</a></li>
+            <li class="headerLi"><a class="a2" href="./Calculadora.html">Calculadora</a></li>
             <li class="headerLi"><a class="a2" href="./Produto.html">Produto</a></li>
-          </ul>
+        </ul>
 
         <h3 style="width: 100px;" class="h3Header"><a href="./Cadastro.html">Cadastrar</a></h3>
 
@@ -70,6 +70,7 @@
         </div>
 
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 <script>
@@ -88,64 +89,57 @@
         var emailVar = input_TelaLogin_Email.value;
         var senhaVar = input_TelaLogin_Senha.value;
 
-        // if (emailVar == "" || senhaVar == "") {
-        //     cardErro.style.display = "block"
-        //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        //     finalizarAguardar();
-        //     return false;
-        // }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
+        if (emailVar == "" || senhaVar == "") {
+            Swal.fire("Preencha todos os campos abaixo.");
+        } else {
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
 
-            console.log(resposta);
-            if (resposta.ok) {
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
                 console.log(resposta);
+                if (resposta.ok) {
+                    console.log(resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.PLANTACOES = JSON.stringify(json.plantacoes)
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.ID_USUARIO = json.id;
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.PLANTACOES = JSON.stringify(json.plantacoes)
 
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                        Swal.fire("Login realizado com sucesso. Estamos direcionando você para a página das suas estufas!");
 
-                });
+                        setTimeout(function () {
+                            window.location = "./dashboard/cards.html";
+                        }, 2000); // apenas para exibir o loading
 
-            } else {
+                    });
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                } else {
 
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
+                    Swal.fire("Senha ou email incorretos. Tente novamente.");
+                }
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+            }).catch(function (erro) {
+                console.log(erro);
+            })
 
-        return false;
+            return false;
+        }
     }
 
 

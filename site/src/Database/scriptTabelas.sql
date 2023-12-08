@@ -7,7 +7,7 @@ create table empresa(
 	idEmpresa int primary key auto_increment,
     nome varchar(40) not null,
     representante varchar(50),
-    cnpj char(14) not null,
+    cnpj char(18) not null,
     CEP varchar(40) not null,
     cidade varchar(40) not null,
     bairro varchar(40) not null,
@@ -18,7 +18,7 @@ create table empresa(
 );
 
 insert into empresa (nome, representante, cnpj, CEP, cidade, bairro, rua, numero, email, senha) values
-	('Group Frizaa', 'Frizza', '29410562723333',  '05819030', 'São Paulo', 'Jardim santa josé fina', 'Rua foz do giraldo',  '96',  'friza@sptech.school', 'Frizza' );
+	('Group Frizaa', 'Frizza', '48.258.123/1582-55',  '05819030', 'São Paulo', 'Jardim santa josé fina', 'Rua foz do giraldo',  '96',  'friza@sptech.school', 'Frizza' );
 
 select * from empresa;
 
@@ -71,9 +71,8 @@ create table endereco (
 insert into endereco values
 	(null, 1, '21304932', 'SP', 'Ibiuna', 'Cerqueira Cesar','Rua foz do giraldo', 595);
 
--- SELECT * FROM endereco JOIN
---     plantacao ON endereco.fkPlantacao = plantacao.idPlantacao;
-
+insert into endereco values
+	(null, 2, '21304932', 'RN', 'Natal', 'Vila cajueiro','Rua afonso da mata', 75);
 
 
 
@@ -113,7 +112,7 @@ SELECT * FROM registro;
 
 INSERT INTO registro (fkPlantacao, lm35_temperatura, dht11_umidade)
 VALUES
-    (1, 22, 50.0);
+    (1, 25.2, 69.0);
 
 SELECT
     lm35_temperatura AS temperatura,
