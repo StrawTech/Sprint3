@@ -178,6 +178,58 @@
     var emailVar = input_email.value;
 
 
+    // o formato do cnpj é XX.XXX.XXX/XXXX-XX
+    if (!/\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}/.test(cnpjVar)) {
+      alert("Por favor, insira um CNPJ válido no formato XX.XXX.XXX/XXXX-XX.");
+    }
+
+    if (!/^.{6,}$/.test(senhaVar)) {
+      marcarCampoInvalido(senha_input);
+      exibirErro("Senha inválida. Deve conter pelo menos 6 caracteres.");
+      return false;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(emailVar)) {
+      marcarCampoInvalido(email_input);
+      exibirErro("E-mail inválido.");
+      return false;
+    }
+
+    if (!nome_empresaVar.trim()) {
+      alert("Por favor, preencha o campo Nome da Empresa.");
+      return false;
+    }
+
+    if (!representanteVar.trim()) {
+      alert("Por favor, preencha o campo Representante.");
+      return false;
+    }
+
+    if (!enderecoVar.trim()) {
+      alert("Por favor, preencha o campo Endereço.");
+      return false;
+    }
+
+    if (!cidadeVar.trim()) {
+      alert("Por favor, preencha o campo Cidade.");
+      return false;
+    }
+
+    if (!bairroVar.trim()) {
+      alert("Por favor, preencha o campo Bairro.");
+      return false;
+    }
+
+    if (!ruaVar.trim()) {
+      alert("Por favor, preencha o campo Rua.");
+      return false;
+    }
+
+    if (!numero_ruaVar.trim()) {
+      alert("Por favor, preencha o campo Número da Rua.");
+      return false;
+    }
+
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
